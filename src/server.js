@@ -23,3 +23,17 @@ const transactionsRoute = require('./routes/transactions');
 
 app.use('/api/products', productsRoute);
 app.use('/api/transactions', transactionsRoute);
+
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const productRoutes = require('./routes/products'); // Εισάγουμε τις διαδρομές των προϊόντων
+
+app.use(bodyParser.json()); // Για να μπορούμε να επεξεργαστούμε τα JSON δεδομένα
+
+// Χρησιμοποιούμε τη διαδρομή για προϊόντα
+app.use('/api/products', productRoutes);
+
+app.listen(5000, () => {
+  console.log('Server running on port 5000');
+});V

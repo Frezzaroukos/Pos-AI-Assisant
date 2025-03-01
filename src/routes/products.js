@@ -20,3 +20,26 @@ router.post('/add', (req, res) => {
 });
 
 module.exports = router;
+const express = require('express');
+const router = express.Router();
+const productsController = require('../controllers/productsController');
+
+// Route για την προσθήκη προϊόντος
+router.post('/add', productsController.addProduct);
+
+// Εδώ μπορείς να προσθέσεις άλλες routes για ανάκτηση ή διαγραφή προϊόντων
+
+module.exports = router;
+
+// src/routes/products.js
+const express = require('express');
+const router = express.Router();
+const productsController = require('../controllers/productsController');
+
+// Route για την προσθήκη προϊόντος
+router.post('/add', productsController.addProduct);
+
+// Route για την ανάκτηση όλων των προϊόντων
+router.get('/', productsController.getAllProducts);
+
+module.exports = router;
