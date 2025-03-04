@@ -1,0 +1,31 @@
+name: Auto Commit and Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'Frezzaroukos'
+          git config --global user.email 'aggelosf2016@gmail.com'
+
+      - name: Make changes
+        run: |
+          # Βάλε εδώ τις εντολές που θέλεις να εκτελούνται αυτόματα
+          echo "Automated commit" >> README.md
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Automated commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
