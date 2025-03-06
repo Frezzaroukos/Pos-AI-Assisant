@@ -19,6 +19,7 @@ jobs:
 
       - name: Make changes
         run: |
+            echo "Last updated: $(date)" > timestamp.txt
           # Βάλε εδώ τις εντολές που θέλεις να εκτελούνται αυτόματα
           echo "Automated commit" >> README.md
 
